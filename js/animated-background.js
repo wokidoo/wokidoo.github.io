@@ -15,10 +15,10 @@ for (let i = 0; i < backgroundData.a.length;i++){
     //set midPosition
     backgroundData.a[i].midPosition = t_minPosition + (t_maxPosition - t_minPosition)/2;
 
-    backgroundElement[i].style.left = `${backgroundData.a[i].midPosition} px`;
-    backgroundElement[i].style.right = `${backgroundData.a[i].midPosition} px`;
-    backgroundElement[i].style.top = `${backgroundData.a[i].midPosition} px`;
-    backgroundElement[i].style.bottom = `${backgroundData.a[i].midPosition} px`;
+    backgroundElement[i].style.left = `${backgroundData.a[i].midPosition}px`;
+    backgroundElement[i].style.right = `${backgroundData.a[i].midPosition}px`;
+    backgroundElement[i].style.top = `${backgroundData.a[i].midPosition}px`;
+    backgroundElement[i].style.bottom = `${backgroundData.a[i].midPosition}px`;
     backgroundElement[i].style.zIndex = `${backgroundData.a[i].zIndex}`;
     backgroundElement[i].style.backgroundImage = `url(${backgroundData.a[i].url})`;
 
@@ -29,15 +29,17 @@ let screenHeight = window.screen.height;
 
 let mouseX = 0;
 let mouseY = 0;
-let lastMouseX = 0;
-let lastMouseY = 0;
 
-addEventListener("mousemove", (event) => {
+function handleMouseMove(event) {
     //centered mouse position
     mouseX = event.clientX - screenWidth / 2;
     mouseY = event.clientY - screenHeight / 2;
 
-    for (let i = 0; i < backgroundElement.length ;i++){
+    updateBackgroundPosition();
+}
+
+function updateBackgroundPosition(){
+    for (let i = 0; i < backgroundElement.length; i++) {
 
         let t_minPosition = backgroundData.a[i].minPosition;
         let t_maxPosition = backgroundData.a[i].maxPosition;
@@ -50,11 +52,9 @@ addEventListener("mousemove", (event) => {
         backgroundElement[i].style.top = capValue(t_midPosition + mouseY * t_vertMouseStrength, t_minPosition, t_maxPosition) + 'px';
         backgroundElement[i].style.bottom = capValue(t_midPosition - mouseY * t_vertMouseStrength, t_minPosition, t_maxPosition) + 'px';
     }
+}
 
-    // Update the lastMouseX and lastMouseY with the current mouse coordinates
-    lastMouseX = mouseX;
-    lastMouseY = mouseY;
-});
+addEventListener("mousemove", handleMouseMove);
 
 addEventListener("resize", (event) => {
     //re-set the screen size values to the new size
@@ -66,10 +66,10 @@ addEventListener("resize", (event) => {
         //set midPosition
         backgroundData.a[i].midPosition = t_minPosition + (t_maxPosition - t_minPosition) / 2;
 
-        backgroundElement[i].style.left = `${backgroundData.a[i].midPosition} px`;
-        backgroundElement[i].style.right = `${backgroundData.a[i].midPosition} px`;
-        backgroundElement[i].style.top = `${backgroundData.a[i].midPosition} px`;
-        backgroundElement[i].style.bottom = `${backgroundData.a[i].midPosition} px`;
+        backgroundElement[i].style.left = `${backgroundData.a[i].midPosition}px`;
+        backgroundElement[i].style.right = `${backgroundData.a[i].midPosition}px`;
+        backgroundElement[i].style.top = `${backgroundData.a[i].midPosition}px`;
+        backgroundElement[i].style.bottom = `${backgroundData.a[i].midPosition}px`;
 
     }
 })
