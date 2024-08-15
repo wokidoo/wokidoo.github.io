@@ -38,6 +38,17 @@ function handleMouseMove(event) {
     updateBackgroundPosition();
 }
 
+function handleDeviceMotion(event) {
+
+    let accX = event.accelerationIncludingGravity.x;
+    let accY = event.accelerationIncludingGravity.y;
+
+    mouseX = accX * 10;
+    mouseY = accY * 10;
+
+    updateBackgroundPosition();
+}
+
 function updateBackgroundPosition(){
     for (let i = 0; i < backgroundElement.length; i++) {
 
@@ -55,6 +66,13 @@ function updateBackgroundPosition(){
 }
 
 addEventListener("mousemove", handleMouseMove);
+
+if (window.DeviceMotionEvent) {
+    window.addEventListener("devicemotion", handleDeviceMotion);
+} else {
+    console.log("DeviceMotionEvent is not supported on this device.");
+}
+
 
 addEventListener("resize", (event) => {
     //re-set the screen size values to the new size
