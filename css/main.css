@@ -21,3 +21,20 @@ body {
     padding: 0 100px;
     /*overflow: hidden;*/
 }
+
+.page-content {
+    position: relative;
+    width: 100%;
+    max-width: 1280px;
+    min-height: 80vh;
+    margin: 10vh auto;
+    padding: 0;
+    background-color: rgba(127, 127, 127, 0.49);
+    -webkit-box-shadow: 0 0 100px -5px rgba(0, 0, 0, .25);
+    -moz-box-shadow: 0 0 100px -5px rgba(0, 0, 0, .25);
+    box-shadow: 0 0 100px -5px rgba(0, 0, 0, .25);
+    border-radius: 32px;
+    -webkit-backface-visibility: hidden;
+    -moz-backface-visibility: hidden;
+    backface-visibility: hidden;
+}

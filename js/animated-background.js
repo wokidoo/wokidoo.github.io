@@ -1,17 +1,28 @@
-const backgroundElement = document.getElementsByClassName("animated-background")[0]; // Access the first element directly
 
-const minPosition = -56;
-const maxPosition = 0;
-const vertMouseStrength = 0.05;
-const horiMouseStrength = 0.05;
-const midPosition = minPosition + (maxPosition - minPosition) / 2;
+let text = '{ "a": [' +
+    '{ "zIndex": -2, "minPosition": -56, "maxPosition": 0, "horiMouseStrength": 0.02, "vertMouseStrength": 0.01, "url": "img/stars1.png" },'+
+    '{ "zIndex": -1, "minPosition": -56, "maxPosition": 0, "horiMouseStrength": 0.03, "vertMouseStrength": 0.03, "url": "img/stars2.png" }'+
+']}';
+
+const backgroundData = JSON.parse(text);
+
+const backgroundElement = document.getElementsByClassName("animated-background"); // Access the first element directly
 
 //Set the initial background position
+for (let i = 0; i < backgroundData.a.length;i++){
+    let t_minPosition = backgroundData.a[i].minPosition;
+    let t_maxPosition = backgroundData.a[i].maxPosition;
+    //set midPosition
+    backgroundData.a[i].midPosition = t_minPosition + (t_maxPosition - t_minPosition)/2;
 
-backgroundElement.style.left = midPosition + 'px';
-backgroundElement.style.right = midPosition + 'px';
-backgroundElement.style.top = midPosition + 'px';
-backgroundElement.style.bottom = midPosition + 'px';
+    backgroundElement[i].style.left = `${backgroundData.a[i].midPosition} px`;
+    backgroundElement[i].style.right = `${backgroundData.a[i].midPosition} px`;
+    backgroundElement[i].style.top = `${backgroundData.a[i].midPosition} px`;
+    backgroundElement[i].style.bottom = `${backgroundData.a[i].midPosition} px`;
+    backgroundElement[i].style.zIndex = `${backgroundData.a[i].zIndex}`;
+    backgroundElement[i].style.backgroundImage = `url(${backgroundData.a[i].url})`;
+
+}
 
 let screenWidth = window.screen.width;
 let screenHeight = window.screen.height;
@@ -26,13 +37,19 @@ addEventListener("mousemove", (event) => {
     mouseX = event.clientX - screenWidth / 2;
     mouseY = event.clientY - screenHeight / 2;
 
-    //console.log(`${mouseX},${mouseY}`);
+    for (let i = 0; i < backgroundElement.length ;i++){
 
-    //set the image position while capping the value between the min and max position values
-    backgroundElement.style.left = capValue(midPosition + mouseX * horiMouseStrength, minPosition, maxPosition) + 'px';
-    backgroundElement.style.right = capValue(midPosition - mouseX * horiMouseStrength, minPosition, maxPosition) + 'px';
-    backgroundElement.style.top = capValue(midPosition + mouseY * vertMouseStrength, minPosition, maxPosition) + 'px';
-    backgroundElement.style.bottom = capValue(midPosition - mouseY * vertMouseStrength, minPosition, maxPosition) + 'px';
+        let t_minPosition = backgroundData.a[i].minPosition;
+        let t_maxPosition = backgroundData.a[i].maxPosition;
+        let t_horiMouseStrength = backgroundData.a[i].horiMouseStrength;
+        let t_vertMouseStrength = backgroundData.a[i].vertMouseStrength;
+        let t_midPosition = backgroundData.a[i].midPosition;
+
+        backgroundElement[i].style.left = capValue(t_midPosition + mouseX * t_horiMouseStrength, t_minPosition, t_maxPosition) + 'px';
+        backgroundElement[i].style.right = capValue(t_midPosition - mouseX * t_horiMouseStrength, t_minPosition, t_maxPosition) + 'px';
+        backgroundElement[i].style.top = capValue(t_midPosition + mouseY * t_vertMouseStrength, t_minPosition, t_maxPosition) + 'px';
+        backgroundElement[i].style.bottom = capValue(t_midPosition - mouseY * t_vertMouseStrength, t_minPosition, t_maxPosition) + 'px';
+    }
 
     // Update the lastMouseX and lastMouseY with the current mouse coordinates
     lastMouseX = mouseX;
@@ -43,10 +60,18 @@ addEventListener("resize", (event) => {
     //re-set the screen size values to the new size
     screenWidth = window.screen.width;
     screenHeight = window.screen.height;
-    backgroundElement.style.left = midPosition + 'px';
-    backgroundElement.style.right = midPosition + 'px';
-    backgroundElement.style.top = midPosition + 'px';
-    backgroundElement.style.bottom = midPosition + 'px';
+    for (let i = 0; i < backgroundElement.length; i++) {
+        let t_minPosition = backgroundData.a[i].minPosition;
+        let t_maxPosition = backgroundData.a[i].maxPosition;
+        //set midPosition
+        backgroundData.a[i].midPosition = t_minPosition + (t_maxPosition - t_minPosition) / 2;
+
+        backgroundElement[i].style.left = `${backgroundData.a[i].midPosition} px`;
+        backgroundElement[i].style.right = `${backgroundData.a[i].midPosition} px`;
+        backgroundElement[i].style.top = `${backgroundData.a[i].midPosition} px`;
+        backgroundElement[i].style.bottom = `${backgroundData.a[i].midPosition} px`;
+
+    }
 })
 
 function capValue(value, min, max) {

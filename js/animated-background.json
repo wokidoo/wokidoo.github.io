@@ -1,0 +1,6 @@
+{
+"animated-backgrounds":[
+    {"zIndex":-2,"minPosition":-56, "maxPosition": 0,"mouseStrength":0.05,"parallaxFactor":1, "url":"img/main_bg1.jpg"},
+    {"zIndex":-1,"minPosition":-56, "maxPosition": 0,"mouseStrength":0.05,"parallaxFactor":2, "url":"img/main_bg.png"}
+]
+}
