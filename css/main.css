@@ -1,40 +1,171 @@
+/* Google fonts */
+@import url('https://fonts.googleapis.com/css?family=Poppins:200,200i,300,300i,400,400i,500,500i,600,600i,700,700i');
+
 body {
+    position: absolute;
     overflow: hidden;
+    background-color: black;
+    margin: auto;
+    padding: auto;
+    width: 100%;
+    height: 100%;
+    background-size: cover;
+    font-size: 15px;
+    font-family: 'Poppins', Helvetica, sans-serif;
+    line-height: 1.65em;
 }
 
-.animated-background {
-    
-    position: absolute;
+.animated-background {   
+    position: fixed;
     width: auto;
     height: auto;
     background-position: center center;
     background-size: cover;
     background-repeat: no-repeat;
     z-index: -1;
+    overflow: hidden;
 }
 
-.page {
-    display: block;
-    width: 100%;
-    height: 100%;
-    min-height: 100%;
-    padding: 0 100px;
-    /*overflow: hidden;*/
+.header-content {
+    display: flex;
+    background-color: rgb(68, 68, 68);
 }
 
-.page-content {
+.header-img img {
     position: relative;
-    width: 100%;
-    max-width: 1280px;
-    min-height: 80vh;
-    margin: 10vh auto;
-    padding: 0;
-    background-color: rgba(127, 127, 127, 0.49);
-    -webkit-box-shadow: 0 0 100px -5px rgba(0, 0, 0, .25);
-    -moz-box-shadow: 0 0 100px -5px rgba(0, 0, 0, .25);
-    box-shadow: 0 0 100px -5px rgba(0, 0, 0, .25);
-    border-radius: 32px;
-    -webkit-backface-visibility: hidden;
-    -moz-backface-visibility: hidden;
-    backface-visibility: hidden;
+    width: 180px;
+    border: 3px solid wheat;
+    border-radius: 300px;
+    margin: 0 auto 30px;
+    z-index: 1;
+}
+
+.header-img:after {
+    display: flex;
+    position: absolute;
+    border-radius: 300px;
+    top: 19%;
+    left: 15%;
+    content: '';
+    height: 30vh;
+    width: 190px;
+    background-image: -webkit-repeating-radial-gradient(center , wheat, antiquewhite 1px, transparent 0px, transparent 100%);
+    background-image: -moz-repeating-radial-gradient(center , wheat, antiquewhite 1px, transparent 0px, transparent 100%);
+    background-image: -ms-repeating-radial-gradient(center , wheat, antiquewhite 1px, transparent 0px, transparent 100%);
+    -webkit-background-size: 6px 6px;
+    -moz-background-size: 6px 6px;
+    background-size: 6px 6px;
+    z-index: 0;
+}
+
+.header-info{
+    display: flex;
+    flex-flow: column wrap;
+    justify-content: center;
+    align-items: center;
+    align-content: center;
+    text-align: center;
+    color: wheat;
+    width: 80%;
+}
+
+.header-info h4{
+    color: rgba(250, 235, 215, 0.629);
+}
+
+.social-links{
+    display: flex;
+    width: 80%;
+    flex-flow: row wrap;
+    justify-content: space-evenly;
+    
+}
+.social-links a i{
+    color: wheat;
+}
+
+
+/* Extra small devices (phones, 600px and down) */
+@media only screen and (max-width: 1000px) {
+        .page {
+            display: block;
+            width: 100%;
+            height: 100%;
+            padding: 0 10%;
+            overflow: hidden;
+        }
+    
+        .page-content {
+            display: flex;
+            flex-flow: row wrap;
+            align-items: stretch;
+            width: 100%;
+            min-height: 80vh;
+            margin: 10vh auto;
+            background-color: rgba(127, 127, 127, 0.50);
+            border-radius: 32px;
+            backface-visibility: hidden;
+        }
+    
+        .header-content {
+            display: flex;
+            width: 100%;
+            flex-flow: row wrap;
+            justify-content: center;
+            align-content: center;
+            text-align: center;
+            overflow: hidden;
+            border-radius: 32px 32px 0 0;
+        }
+    
+        .about {
+            display: flex;
+            width: 100%;
+            justify-content: center;
+            align-items: center;
+            overflow: hidden;
+            border-radius: 0 0 32px 32px;
+            background-color: rgba(71, 172, 13, 0.5);
+        }
+}
+
+/* large devices (portrait tablets and displays, 1000px and up) */
+@media only screen and (min-width: 1000px) {
+        .page {
+            display: block;
+            width: 100%;
+            height: 100%;
+            padding: 0 10%;
+            overflow: hidden;
+        }
+    
+        .page-content {
+            display: flex;
+            width: 100%;
+            min-height: 80vh;
+            margin: 10vh auto;
+            /* padding: 0; */
+            background-color: rgba(127, 127, 127, 0.50);
+            border-radius: 32px;
+            backface-visibility: hidden;
+        }
+    
+        .header-content {
+            width: 300px;
+            flex-flow: column wrap;
+            justify-content: space-evenly;
+            align-items: center;
+            overflow: hidden;
+            border-radius: 32px 0 0 32px;
+        }
+    
+        .about {
+            display: flex;
+            width: calc(100% - 300px);
+            justify-content: center;
+            align-items: center;
+            overflow: hidden;
+            border-radius: 0 32px 32px 0;
+            background-color: rgba(71, 172, 13, 0.5);
+        }
 }
