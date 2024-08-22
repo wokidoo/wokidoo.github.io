@@ -1,5 +1,12 @@
 /* Google fonts */
 @import url('https://fonts.googleapis.com/css?family=Poppins:200,200i,300,300i,400,400i,500,500i,600,600i,700,700i');
+:root{
+    --mainColor: wheat;
+    --secondaryColor: antiquewhite;
+    --headerColor:rgb(68, 68, 68);
+    --primaryFontColor: wheat;
+    --secondaryFontColor: rgba(250, 235, 215, 0.629);
+}
 
 body {
     position: absolute;
@@ -28,13 +35,13 @@ body {
 
 .header-content {
     display: flex;
-    background-color: rgb(68, 68, 68);
+    background-color: var(--headerColor);
 }
 
 .header-img img {
     position: relative;
     width: 180px;
-    border: 3px solid wheat;
+    border: 3px solid var(--mainColor);
     border-radius: 300px;
     margin: 0 auto 30px;
     z-index: 1;
@@ -44,12 +51,12 @@ body {
     display: flex;
     position: absolute;
     border-radius: 300px;
-    top: 19%;
-    left: 15%;
+    top: calc(16%);
+    left: calc(70px + 10%);
     content: '';
-    height: 30vh;
+    height: 25vh;
     width: 190px;
-    background-image: -webkit-repeating-radial-gradient(center , wheat, antiquewhite 1px, transparent 0px, transparent 100%);
+    background-image: -webkit-repeating-radial-gradient(center , var(--mainColor), var(--secondaryColor) 1px, transparent 0px, transparent 100%);
     background-image: -moz-repeating-radial-gradient(center , wheat, antiquewhite 1px, transparent 0px, transparent 100%);
     background-image: -ms-repeating-radial-gradient(center , wheat, antiquewhite 1px, transparent 0px, transparent 100%);
     -webkit-background-size: 6px 6px;
@@ -65,12 +72,12 @@ body {
     align-items: center;
     align-content: center;
     text-align: center;
-    color: wheat;
+    color: var(--mainColor);
     width: 80%;
 }
 
 .header-info h4{
-    color: rgba(250, 235, 215, 0.629);
+    color: var(--secondaryFontColor);
 }
 
 .social-links{
@@ -80,10 +87,49 @@ body {
     justify-content: space-evenly;
     
 }
+
 .social-links a i{
-    color: wheat;
+    color: var(--mainColor);
+    font-size: 20px;
 }
 
+.social-links a:hover i{
+    color: rgb(159, 146, 122);
+
+}
+
+.header-button{
+    display: flex;
+    justify-content: center;
+}
+
+.button {
+    color: var(--mainColor);
+    text-decoration: none;
+    border: 2.5px solid var(--mainColor);
+    border-radius: 7px;
+}
+
+.button:hover{
+    background-color: var(--mainColor);
+    color: black;
+}
+
+.about {
+    display: flex;
+    width: 100%;
+    padding: 3%;
+    justify-content: center;
+    align-items: center;
+    overflow: hidden;
+    border-radius: 0 0 32px 32px;
+    background-color: rgba(159, 146, 122, 0.5);
+    color: var(--mainColor);
+}
+
+.about h1{
+    color: var(--secondaryFontColor);
+}
 
 /* Extra small devices (phones, 600px and down) */
 @media only screen and (max-width: 1000px) {
@@ -110,22 +156,29 @@ body {
         .header-content {
             display: flex;
             width: 100%;
-            flex-flow: row wrap;
+            flex-flow: column wrap;
             justify-content: center;
             align-content: center;
             text-align: center;
             overflow: hidden;
             border-radius: 32px 32px 0 0;
         }
+
+        .header-img:after {
+            top: calc(19%);
+            left: calc(50vw - 70px);
+            height: 23vh;
+            width: 190px;
+
+        }
+
     
         .about {
             display: flex;
             width: 100%;
             justify-content: center;
             align-items: center;
-            overflow: hidden;
             border-radius: 0 0 32px 32px;
-            background-color: rgba(71, 172, 13, 0.5);
         }
 }
 
@@ -163,9 +216,7 @@ body {
             display: flex;
             width: calc(100% - 300px);
             justify-content: center;
-            align-items: center;
-            overflow: hidden;
+            align-items: flex-start;
             border-radius: 0 32px 32px 0;
-            background-color: rgba(71, 172, 13, 0.5);
         }
 }

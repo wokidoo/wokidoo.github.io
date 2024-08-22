@@ -2,7 +2,7 @@
 let text = '{ "a": [' +
     '{ "zIndex": -2, "minPosition": -56, "maxPosition": 0, "horiMouseStrength": 0.01, "vertMouseStrength": 0.01, "url": "img/stars3.png" },'+
     '{ "zIndex": -2, "minPosition": -56, "maxPosition": 0, "horiMouseStrength": 0.02, "vertMouseStrength": 0.01, "url": "img/stars2.png" },'+
-    '{ "zIndex": -1, "minPosition": -72, "maxPosition": 0, "horiMouseStrength": 0.03, "vertMouseStrength": 0.03, "url": "img/stars1.png" }'+
+    '{ "zIndex": -1, "minPosition": -72, "maxPosition": 0, "horiMouseStrength": 0.04, "vertMouseStrength": 0.03, "url": "img/stars1.png" }'+
 ']}';
 
 const backgroundData = JSON.parse(text);
