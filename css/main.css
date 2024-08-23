@@ -222,7 +222,7 @@ body {
         }
 
         .header-img:after {
-            top: calc(14%);
+            top: calc(16.5%);
             left: calc(50vw - 77px);
             height: 23vh;
             width: 190px;

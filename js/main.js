@@ -1,15 +1,22 @@
-// document.getElementsByClassName("opacity-button").addEventListener("click", toggleOpacity);
 
 const opacityButton = document.getElementsByClassName("opacity-button")[0];
+const header = document.getElementsByClassName("header-content")[0];
+const about = document.getElementsByClassName("about")[0];
+let isSeeThrough = false;
+
 opacityButton.addEventListener("click", toggleOpacity);
-document.getElementsByClassName("page")[0].style.opacity = 1;
+
+document.getElementsByClassName("page-content")[0].style.opacity = 1;
 
 function toggleOpacity(){
-    const page = document.getElementsByClassName("page")[0];
-    console.log(page.style.opacity);
-    if(page.style.opacity <= 0.5){
-        page.style.opacity = 1;
+
+    if(isSeeThrough){
+        header.style.opacity = 1;
+        about.style.opacity = 1;
+        isSeeThrough = false;
     }else{
-        page.style.opacity = 0.25;
+        header.style.opacity = 0.25;
+        about.style.opacity = 0.25;
+        isSeeThrough = true;
     }
 }
