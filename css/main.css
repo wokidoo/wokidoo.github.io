@@ -6,11 +6,12 @@
     --headerColor:rgb(68, 68, 68);
     --primaryFontColor: wheat;
     --secondaryFontColor: rgba(250, 235, 215, 0.629);
+    --contentBackgroundColor: rgb(82, 77, 71);
 }
 
 body {
     position: absolute;
-    overflow: hidden;
+    /* overflow: hidden; */
     background-color: black;
     margin: auto;
     padding: auto;
@@ -119,18 +120,23 @@ body {
 
 .about {
     display: flex;
+    flex-flow: column wrap;
     width: 100%;
     padding: 3%;
     justify-content: center;
     align-items: center;
-    overflow: hidden;
     border-radius: 0 0 32px 32px;
-    background-color: rgba(159, 146, 122, 0.5);
+    background-color: var(--contentBackgroundColor);
     color: var(--mainColor);
+    /* overflow: scroll; */
 }
 
 .about h1{
     color: var(--secondaryFontColor);
+}
+
+.about p{
+    font-size: 21px;
 }
 
 .menu-buttons {
@@ -161,6 +167,26 @@ body {
     background-color: var(--mainColor);
 }
 
+.opacity-button{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    color: var(--mainColor);
+    background-color: var(--headerColor);
+    width: 100%;
+    margin: 5px;
+    width: 100%;
+    max-width: 50px;
+    height: 50px;
+    border: 2.5px solid var(--mainColor);
+    border-radius: 10px;
+}
+
+.opacity-button:hover{
+    color: black;
+    background-color: var(--mainColor);
+}
+
 /* Extra small devices (phones, 600px and down) */
 @media only screen and (max-width: 1000px) {
         .page {
@@ -169,7 +195,6 @@ body {
             height: 100%;
             padding-right: 2.5%;
             padding-left: 2.5%;
-            overflow: hidden;
         }
     
         .page-content {
@@ -182,6 +207,7 @@ body {
             margin-top: 1vh;
             border-radius: 32px;
             backface-visibility: hidden;
+            overflow-y: auto;
         }
     
         .header-content {
@@ -196,7 +222,7 @@ body {
         }
 
         .header-img:after {
-            top: calc(20%);
+            top: calc(14%);
             left: calc(50vw - 77px);
             height: 23vh;
             width: 190px;
@@ -213,10 +239,7 @@ body {
         }
 
         .about {
-            display: flex;
             width: 100%;
-            justify-content: center;
-            align-items: center;
             border-radius: 0 0 32px 32px;
         }
 
@@ -270,10 +293,7 @@ body {
         }
     
         .about {
-            display: flex;
             width: calc(100% - 300px);
-            justify-content: center;
-            align-items: flex-start;
             border-radius: 0 32px 32px 0;
         }
 
