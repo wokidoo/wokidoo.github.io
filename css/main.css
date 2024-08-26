@@ -11,7 +11,6 @@
 
 body {
     position: absolute;
-    /* overflow: hidden; */
     background-color: black;
     margin: auto;
     padding: auto;
@@ -52,10 +51,10 @@ body {
     display: flex;
     position: absolute;
     border-radius: 300px;
-    top: calc(15%);
+    top: calc(10% + 70px);
     left: calc(70px + 10%);
     content: '';
-    height: 22vh;
+    height: 190px;
     width: 190px;
     background-image: -webkit-repeating-radial-gradient(center , var(--mainColor), var(--secondaryColor) 1px, transparent 0px, transparent 100%);
     background-image: -moz-repeating-radial-gradient(center , wheat, antiquewhite 1px, transparent 0px, transparent 100%);
@@ -118,7 +117,7 @@ body {
     color: black;
 }
 
-.about {
+.main-container {
     display: flex;
     flex-flow: column wrap;
     width: 100%;
@@ -128,14 +127,27 @@ body {
     border-radius: 0 0 32px 32px;
     background-color: var(--contentBackgroundColor);
     color: var(--mainColor);
-    /* overflow: scroll; */
+    overflow: none;
 }
 
-.about h1{
+.main-container div {
+    display: flex;
+    flex-flow: column wrap;
+    width: 100%;
+    padding: 3%;
+    justify-content: center;
+    align-items: center;
+    border-radius: 0 0 32px 32px;
+    background-color: var(--contentBackgroundColor);
+    color: var(--mainColor);
+}
+
+.main-container h1 {
     color: var(--secondaryFontColor);
+    padding-bottom: 20px;
 }
 
-.about p{
+.main-container p {
     font-size: 21px;
 }
 
@@ -187,6 +199,45 @@ body {
     background-color: var(--mainColor);
 }
 
+.home-button {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    color: var(--mainColor);
+    background-color: var(--headerColor);
+    width: 100%;
+    margin: 5px;
+    width: 100%;
+    max-width: 50px;
+    height: 50px;
+    border: 2.5px solid var(--mainColor);
+    border-radius: 10px;
+}
+
+.home-button:hover {
+    color: black;
+    background-color: var(--mainColor);
+}
+
+.experience-button {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    color: var(--mainColor);
+    background-color: var(--headerColor);
+    width: 100%;
+    margin: 5px;
+    width: 100%;
+    max-width: 50px;
+    height: 50px;
+    border: 2.5px solid var(--mainColor);
+    border-radius: 10px;
+}
+
+.experience-button:hover {
+    color: black;
+    background-color: var(--mainColor);
+}
 /* Extra small devices (phones, 600px and down) */
 @media only screen and (max-width: 1000px) {
         .page {
@@ -238,7 +289,7 @@ body {
             margin-right: 15px;
         }
 
-        .about {
+        .main-container {
             width: 100%;
             border-radius: 0 0 32px 32px;
         }
@@ -292,7 +343,7 @@ body {
             border-radius: 32px 0 0 32px;
         }
     
-        .about {
+        .main-container {
             width: calc(100% - 300px);
             border-radius: 0 32px 32px 0;
         }
