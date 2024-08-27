@@ -7,6 +7,7 @@
     --primaryFontColor: wheat;
     --secondaryFontColor: rgba(250, 235, 215, 0.629);
     --contentBackgroundColor: rgb(82, 77, 71);
+    --tooltipBackgroundColor: rgb(175, 120, 53);
 }
 
 body {
@@ -151,7 +152,7 @@ body {
     font-size: 21px;
 }
 
-.menu-buttons {
+.menu-button-container {
     display: flex;
     flex-flow: column wrap;
     align-items: center;
@@ -159,24 +160,50 @@ body {
     width: 5%;
 }
 
-.menu-buttons a{
+.menu-button{
     display: flex;
-    color: var(--mainColor);
+    flex-flow: row-reverse wrap;
     justify-content: center;
     align-items: center;
-    border: 2.5px solid var(--mainColor);
+    
+    color: var(--mainColor);
     background-color: var(--headerColor);
-    margin: 5px;
+
     width: 100%;
     max-width: 50px;
     height: 50px;
-    text-decoration: none;
+    border: 2.5px solid var(--mainColor);
     border-radius: 10px;
 }
 
-.menu-buttons a:hover {
+.menu-button i{
+    display: block;
+}
+
+.menu-button:hover {
     color: black;
     background-color: var(--mainColor);
+}
+
+.menu-button .button-tooltip{
+    visibility: hidden;
+    text-align: right;
+
+    margin: 5px;
+
+    background-color: var(--tooltipBackgroundColor);
+    color: #fff;
+    border-radius: 6px;
+    
+    /* Position the tooltip */
+    position: relative;
+    z-index: 1;
+    bottom: 45%;
+    right: 125%;
+}
+
+.menu-button:hover .button-tooltip{
+    visibility: visible;
 }
 
 .opacity-button{
@@ -199,45 +226,6 @@ body {
     background-color: var(--mainColor);
 }
 
-.home-button {
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    color: var(--mainColor);
-    background-color: var(--headerColor);
-    width: 100%;
-    margin: 5px;
-    width: 100%;
-    max-width: 50px;
-    height: 50px;
-    border: 2.5px solid var(--mainColor);
-    border-radius: 10px;
-}
-
-.home-button:hover {
-    color: black;
-    background-color: var(--mainColor);
-}
-
-.experience-button {
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    color: var(--mainColor);
-    background-color: var(--headerColor);
-    width: 100%;
-    margin: 5px;
-    width: 100%;
-    max-width: 50px;
-    height: 50px;
-    border: 2.5px solid var(--mainColor);
-    border-radius: 10px;
-}
-
-.experience-button:hover {
-    color: black;
-    background-color: var(--mainColor);
-}
 /* Extra small devices (phones, 600px and down) */
 @media only screen and (max-width: 1000px) {
         .page {
@@ -294,7 +282,7 @@ body {
             border-radius: 0 0 32px 32px;
         }
 
-        .menu-buttons a{
+        .menu-button-container a{
             margin-left: 15px;
             margin-right: 15px;
             margin-top: 0;
