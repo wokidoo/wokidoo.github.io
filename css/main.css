@@ -23,6 +23,28 @@ body {
     line-height: 1.65em;
 }
 
+/* width */
+::-webkit-scrollbar {
+    width: 5px;
+    border-radius: 5px;
+}
+
+/* Track */
+::-webkit-scrollbar-track {
+    border-radius: 5px;
+}
+
+/* Handle */
+::-webkit-scrollbar-thumb {
+    background: #888;
+    border-radius: 5px;
+}
+
+/* Handle on hover */
+::-webkit-scrollbar-thumb:hover {
+    background: #555;
+}
+
 .animated-background {   
     position: fixed;
     width: auto;
@@ -93,6 +115,7 @@ body {
 .social-links a i{
     color: var(--mainColor);
     font-size: 20px;
+    transition: all 0.3s ease-in-out;
 }
 
 .social-links a:hover i{
@@ -111,6 +134,7 @@ body {
     text-decoration: none;
     border: 2.5px solid var(--mainColor);
     border-radius: 7px;
+    transition: all 0.3s ease-in-out;
 }
 
 .button:hover{
@@ -145,6 +169,8 @@ body {
 
     background-color: var(--contentBackgroundColor);
     color: var(--mainColor);
+
+    transition: all 0.3s ease-in-out;
 }
 
 .main-container h1 {
@@ -182,6 +208,8 @@ body {
     height: 50px;
     border: 2.5px solid var(--mainColor);
     border-radius: 10px;
+    
+    transition: all 0.3s ease-in-out;
 }
 
 .menu-button i{
@@ -207,20 +235,23 @@ body {
     /* Position the tooltip */
     position: absolute;
     z-index: 1;
-    /* bottom: 45%; */
-    right: 8.6%;
+    right: 5%;
+    opacity: 0%;
+    transition: all 0.3s ease-in-out;
 }
 
 .menu-button:hover .button-tooltip{ 
     visibility: visible;
+    opacity: 100%;
+    right: 8.6%;
 }
 
 .opacity-button{
     display: flex;
     justify-content: center;
     align-items: center;
-    color: var(--mainColor);
-    background-color: var(--headerColor);
+    color: var(--headerColor);
+    background-color: var(--mainColor);
     width: 100%;
     margin: 5px;
     width: 100%;
@@ -231,8 +262,8 @@ body {
 }
 
 .opacity-button:hover{
-    color: black;
-    background-color: var(--mainColor);
+    color: var(--mainColor);
+    background-color: var(--headerColor) !important;
 }
 
 /* Extra small devices (phones, 600px and down) */
@@ -312,8 +343,16 @@ body {
 
         .menu-button .button-tooltip {
             right: 45%;
-            top: 13%;
+            top: 7%;
+            opacity: 0%;
+            transition: all 0.3s ease-in-out;
+        }
 
+        .menu-button:hover .button-tooltip{ 
+            visibility: visible;
+            opacity: 100%;
+            right: 45%;
+            top: 13%;
         }
 }
 
