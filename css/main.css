@@ -140,6 +140,7 @@ body {
     text-decoration: none;
     border: 2.5px solid var(--mainColor);
     border-radius: 7px;
+    padding: 5px;
     transition: all 0.3s ease-in-out;
 }
 
@@ -415,7 +416,23 @@ table.experience tr td h4 {
     margin-top: 5px;
     margin-bottom: 5px;
 }
+/* SKILLS LIST */
+.skills ul{
+    list-style: none;
+}
 
+.skills ul li{
+    display: inline-block;
+    padding: 3px;
+    margin: 3px;
+    border: 1px solid var(--mainColor);
+    border-radius: 7px;
+}
+
+.skills h4{
+    font-size: medium;
+    color: var(--secondaryFontColor);
+}
 /* Extra small devices (phones, 600px and down) */
 @media only screen and (max-width: 1000px) {
         .page {
