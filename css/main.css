@@ -554,7 +554,6 @@ table.experience tr td h4 {
             border-radius: 32px;
             backface-visibility: hidden;
             overflow-y: auto;
-            box-shadow: 5px 10px #888888;
         }
     
         .header-content {
@@ -654,7 +653,6 @@ table.experience tr td h4 {
             align-items: center;
             overflow: hidden;
             border-radius: 32px 0 0 32px;
-            /* box-shadow: 5px 5px 20px 0px white inset; */
         }
     
         .main-container {

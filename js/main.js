@@ -4,8 +4,11 @@ const opacityButton = document.getElementsByClassName("opacity-button")[0];
 const homeButton = document.getElementsByClassName("home-button");
 const homeSubpage = document.getElementById("home-subpage");
 
-const experienceButton = document.getElementsByClassName("experience-button");
+const resumeButton = document.getElementsByClassName("experience-button");
 const resumeSubpage = document.getElementById("resume-subpage");
+
+const projectsButton = document.getElementsByClassName("projects-button");
+const projectsSubpage = document.getElementById("projects-subpage");
 
 const header = document.getElementsByClassName("header-content")[0];
 const mainContainer = document.getElementsByClassName("main-container")[0];
@@ -14,8 +17,10 @@ let isSeeThrough = false;
 opacityButton.addEventListener("click", toggleOpacity);
 homeButton[0].addEventListener("click", () => { changePage("home-subpage") });
 homeButton[1].addEventListener("click", () => { changePage("home-subpage") });
-experienceButton[0].addEventListener("click", () => {changePage("resume-subpage")});
-experienceButton[1].addEventListener("click", () => {changePage("resume-subpage")});
+resumeButton[0].addEventListener("click", () => {changePage("resume-subpage")});
+resumeButton[1].addEventListener("click", () => {changePage("resume-subpage")});
+projectsButton[0].addEventListener("click", () => { changePage("projects-subpage") });
+projectsButton[1].addEventListener("click", () => { changePage("projects-subpage") });
 
 const inAnimationSpeed = 0.5;
 const outAnimationSpeed = 0.5;
