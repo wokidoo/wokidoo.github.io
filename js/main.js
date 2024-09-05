@@ -30,12 +30,12 @@ function getRandomIndex(maxIndex){
 function toggleOpacity(){
 
     if(isSeeThrough){
-        header.style.opacity = 1;
-        mainContainer.style.opacity = 1;
+        header.style.animation = "0.5s linear 0s normal forwards running fadein";
+        mainContainer.style.animation = "0.5s linear 0s normal forwards running fadein";
         isSeeThrough = false;
     }else{
-        header.style.opacity = 0.25;
-        mainContainer.style.opacity = 0.25;
+        header.style.animation = "0.5s linear 0s normal forwards running fadeout";
+        mainContainer.style.animation = "0.5s linear 0s normal forwards running fadeout";
         isSeeThrough = true;
     }
 }
