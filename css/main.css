@@ -622,6 +622,10 @@ table.experience tr td h4 {
             right: 45%;
             top: 13%;
         }
+
+        .active-subpage {
+            border-radius: 32px;
+        }
 }
 
 /* large devices (portrait tablets and displays, 1000px and up) */
