@@ -2,23 +2,30 @@
 const opacityButton = document.getElementsByClassName("opacity-button")[0];
 
 const homeButton = document.getElementsByClassName("home-button");
-const homeContent = document.getElementsByClassName("home-content")[0];
+const homeSubpage = document.getElementById("home-subpage");
 
 const experienceButton = document.getElementsByClassName("experience-button");
-const experienceContent = document.getElementsByClassName("experience-content")[0];
+const resumeSubpage = document.getElementById("resume-subpage");
 
 const header = document.getElementsByClassName("header-content")[0];
 const mainContainer = document.getElementsByClassName("main-container")[0];
 let isSeeThrough = false;
 
 opacityButton.addEventListener("click", toggleOpacity);
-homeButton[0].addEventListener("click", goHome);
-homeButton[1].addEventListener("click", goHome);
-experienceButton[0].addEventListener("click", goExperience);
-experienceButton[1].addEventListener("click", goExperience);
+homeButton[0].addEventListener("click", () => { changePage("home-subpage") });
+homeButton[1].addEventListener("click", () => { changePage("home-subpage") });
+experienceButton[0].addEventListener("click", () => {changePage("resume-subpage")});
+experienceButton[1].addEventListener("click", () => {changePage("resume-subpage")});
 
-// document.getElementsByClassName("page-content")[0].style.opacity = 1;
-// document.getElementsByClassName("experience-content")[0].style.display = "none";
+const inAnimationSpeed = 0.5;
+const outAnimationSpeed = 0.5;
+
+const inAnimations = ["yRotateIn","xRotateIn", "slideInLeft"];
+const outAnimations = ["yRotateOut", "xRotateOut", "slide-out-left"];
+
+function getRandomIndex(maxIndex){
+    return Math.floor(Math.random() * maxIndex);
+}
 
 function toggleOpacity(){
 
@@ -33,24 +40,34 @@ function toggleOpacity(){
     }
 }
 
-function goHome(){
-    console.log("going home");
-    // homeContent.style.display = "flex";
-    for(let i=0; i<document.getElementsByClassName("subpage").length ;i++){
-        let subpage = document.getElementsByClassName("subpage")[i];
-        subpage.classList.remove("active-subpage");
-    }
-    homeContent.classList.add("active-subpage");
-    // experienceContent.style.display = "none";
-}
-
-function goExperience(){
-    console.log("going experience");
-    // homeContent.style.display = "none";
-    // experienceContent.style.display = "flex";
+function changePage(newPageID) {
+    //Pass in the ID of the new subpage
+    let newSubpage = document.getElementById(newPageID);
     for (let i = 0; i < document.getElementsByClassName("subpage").length; i++) {
         let subpage = document.getElementsByClassName("subpage")[i];
-        subpage.classList.remove("active-subpage");
+        //Find current active subpage
+        if (subpage.classList.contains("active-subpage") && subpage.id != newSubpage.id) {
+            console.log(`Going to ${newSubpage.id}`);
+            //Play fade out animation for current subpage
+            let randomOutIndex = getRandomIndex(outAnimations.length);
+            console.log(`playing out animation ${outAnimations[randomOutIndex]}`);
+            subpage.style.animation = `${outAnimationSpeed}s linear 0s 1 normal backwards running ${outAnimations[randomOutIndex]}`;
+            //Add event listener for the end of subpage out animation
+            subpage.addEventListener('animationend', () => {
+                //Deactivate subpage and remove animation
+                subpage.classList.remove("active-subpage");
+                subpage.style.removeProperty("animation");
+                //Activate new subpage
+                newSubpage.classList.add("active-subpage");
+
+                let randomInIndex = getRandomIndex(inAnimations.length);
+                console.log(`playing in animation ${inAnimations[randomInIndex]}`);
+                newSubpage.style.animation = `${inAnimationSpeed}s linear 0s 1 normal forwards running ${inAnimations[randomInIndex]}`;
+                newSubpage.addEventListener('animationend', () =>{
+                    newSubpage.style.removeProperty("animation");
+                }, { once: true }); 
+            }, { once: true });
+        }
     }
-    experienceContent.classList.add("active-subpage");
+    
 }

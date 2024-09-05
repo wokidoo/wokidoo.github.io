@@ -24,29 +24,124 @@ body {
     line-height: 1.65em;
 }
 
-/* width */
-::-webkit-scrollbar {
-    width: 10px;
-    border-radius: 5px;
+/* TRANSITION ANIMATIONS */
+
+    /* OUT ANIMATIONS */
+@keyframes fadeout {
+    0% {
+        opacity: 1;
+    }
+
+    90% {
+        opacity: 0;
+    }
+
+    100%{
+        opacity: 0;
+    }
+}
+
+@keyframes slide-out-left {
+    0% {
+        left: 0%;
+    }
+
+    90% {
+        left: 100%;
+    }
+
+    100%{
+        left:100%;
+        opacity: 0;
+    }
+    
+}
+
+@keyframes yRotateOut {
+    from {
+        transform: scale(1,1);
+    }
+
+    to {
+        transform: scale(0,1);
+    }
+}
+
+@keyframes xRotateOut {
+    from {
+        transform: scale(1,1);
+    }
+
+    to {
+        transform: scale(1,0);
+    }
+}
+    /* IN ANIMATIONS */
+@keyframes fadein {
+    from {
     opacity: 0;
+    }
+    to {
+    opacity: 1;
+    }
 }
 
-/* Track */
-::-webkit-scrollbar-track {
-    border-radius: 5px;
+@keyframes yRotateIn {
+    from{
+        transform: rotateY(90deg);
+    }
+
+    to{
+        transform: rotateY(0deg);
+    }
 }
 
-/* Handle */
-::-webkit-scrollbar-thumb {
-    background: #888;
-    border-radius: 5px;
+@keyframes xRotateIn{
+    from{
+        transform: rotateX(90deg);
+    }
+
+    to{
+        transform: rotateX(0deg);
+    }
 }
 
-/* Handle on hover */
-::-webkit-scrollbar-thumb:hover {
-    background: #555;
+@keyframes slideInLeft{
+    from{
+        transform: translate(100%);
+        opacity: 0;
+    }
+
+    to{
+        transform: translate(0%);
+        opacity: 1;
+    }
 }
 
+/* SCROLLBAR */
+.active-subpage:hover {
+    overflow-y: auto;
+}
+
+.active-subpage::-webkit-scrollbar{
+    width: 12px;
+    color:#888888;
+
+}
+
+.active-subpage::-webkit-scrollbar-thumb{
+    background-color: #888;
+    /* Thumb color */
+    border-radius: 10px;
+}
+
+.active-subpage::-webkit-scrollbar-track{
+    background-color: var(--contentBackgroundColor);
+    margin: 5vh;
+}
+
+
+/* ANIMATED BACKGROUND */
 .animated-background {   
     position: fixed;
     width: auto;
@@ -58,6 +153,7 @@ body {
     overflow: hidden;
 }
 
+/* HEADER */
 .header-content {
     display: flex;
     background-color: var(--headerColor);
@@ -148,21 +244,20 @@ body {
     background-color: var(--mainColor);
     color: black;
 }
-
+/* MAIN CONTAINER */
 .main-container {
     flex-flow: column wrap;
     width: 100%;
-    padding: 3% 5% 0 5%;
+    margin: 0;
     justify-content: center;
     align-items: center;
-    background-color: var(--contentBackgroundColor);
-    color: var(--mainColor);
 
-    overflow-y: auto;
-    scroll-snap-type: y mandatory;
-    scroll-padding: 30px 0 0 0;
+    background-color: var(--headerColor);
+    border-radius: 32px 0px 0px 32px;
     
+    color: var(--mainColor);
 }
+
 
 .menu-button-container {
     display: flex;
@@ -260,20 +355,19 @@ p a{
     justify-content: flex-start;
 }
 
+/* SUBPAGES */
 .subpage{
     display: none;
     visibility: hidden;
     opacity: 0;
     position: relative;
     width: 100%;
-    margin: 30px 0 30px 0;
     justify-content: center;
     align-items: space-around;
     
-    background-color: var(--contentBackgroundColor);
     color: var(--mainColor);
+    overflow-x: hidden;
     
-    transition: all 0.3s ease-in-out;
 }
 
 .subpage h2{
@@ -290,11 +384,8 @@ p a{
     z-index: -1;
     width: 60px;
     height: 20px;
-    /* background-color: var(--linkColor); */
 
     background-image: -webkit-repeating-radial-gradient(center, var(--headerColor), var(--linkColor) 1px, transparent 0px, transparent 100%);
-    /* -webkit-background-size: 6px 6px;
-    -moz-background-size: 6px 6px; */
     background-size: 6px 6px;
 
     margin-left: -30px;
@@ -314,19 +405,28 @@ p a{
 
 .active-subpage{
     display: inline-flex !important;
-    opacity: 1 !important;
+    opacity: 1;
     visibility: visible !important;
     flex-direction: column;
 
+    color: var(--mainColor);
+
     width: 100%;
-    margin: 30px 0 30px 0;
-    justify-content: center;
-    align-items: space-around;
+    min-height: 100%;
+    max-height: 100%;
+    padding: 30px;
+    justify-content: flex-start;
     
     background-color: var(--contentBackgroundColor);
-    color: var(--mainColor);
+    background-size: cover;
+
+    border-radius: 0px 32px 32px 0px;
+
+    scrollbar-gutter: stable;
+
+    overflow-y: hidden;
+    overflow-x: hidden;
     
-    transition: all 0.3s ease-in-out;
 }
 
 /*EDUCATION TABLE*/
@@ -488,6 +588,7 @@ table.experience tr td h4 {
         .main-container {
             width: 100%;
             border-radius: 0 0 32px 32px;
+            background-color: var(--headerColor);
         }
 
         .menu-button-container a{
