@@ -9,6 +9,7 @@
     --contentBackgroundColor: rgb(82, 77, 71);
     --tooltipBackgroundColor: rgb(175, 120, 53);
     --linkColor: rgb(0, 208, 255);
+    font-size: 14px;
 }
 
 body {
@@ -19,7 +20,7 @@ body {
     width: 100%;
     height: 100%;
     background-size: cover;
-    font-size: 15px;
+    font-size: 1.25rem;
     font-family: 'Poppins', Helvetica, sans-serif;
     line-height: 1.65em;
 }
@@ -125,8 +126,6 @@ body {
 
 .active-subpage::-webkit-scrollbar{
     width: 12px;
-    color:#888888;
-
 }
 
 .active-subpage::-webkit-scrollbar-thumb{
@@ -216,7 +215,7 @@ body {
 
 .social-links a i{
     color: var(--mainColor);
-    font-size: 20px;
+    font-size: 1.25rem;
     transition: all 0.3s ease-in-out;
 }
 
@@ -295,6 +294,7 @@ body {
 .menu-button:hover {
     color: black;
     background-color: var(--mainColor);
+    cursor: pointer;
 }
 
 .menu-button .button-tooltip {
@@ -373,7 +373,7 @@ p a{
 .subpage h2{
     color: var(--primaryFontColor);
     margin: 0;
-    font-size:xx-large;
+    font-size:2rem;
     font-weight: bold;
     z-index: 99;
 }
@@ -394,13 +394,13 @@ p a{
 
 .subpage h3{
     color: var(--primaryFontColor);
-    font-size: large;
+    font-size: 1.5rem;
     font-weight: bold;
 }
 
 .subpage p{
     margin: 0;
-    font-size: 1.0rem;
+    font-size: 1.25rem;
 }
 
 .active-subpage{
