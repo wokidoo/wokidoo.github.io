@@ -77,6 +77,48 @@ body {
         transform: scale(1,0);
     }
 }
+
+@keyframes frameDrop {
+    0%{
+        transform-origin: 0% 0%;
+        transform: rotatez(0deg);
+        z-index: 999;
+    }
+    40%{
+        transform-origin: 0% 0%;
+        transform: rotatez(60deg);
+        opacity: 1;
+    }   
+    80%{
+        transform-origin: 0% 0%;
+        transform: rotatez(60deg);
+        transform: translateY(100%);
+        z-index: 999;
+        opacity: 0;
+    
+    }
+    100%{
+        transform-origin: 0% 0%;
+        transform: rotatez(60deg);
+        transform: translateY(100%);
+        z-index: 999;
+        opacity: 0;
+    }
+}
+@keyframes pushAndTurn {
+    0%{
+        opacity: 1;
+        transform: translateZ(0);
+    }
+    50%{
+        opacity: 0.5;
+        transform: translateZ(-100);
+    }
+    100%{
+        opacity: 0;
+        transform: translateZ(-100);
+    }
+}
     /* IN ANIMATIONS */
 @keyframes fadein {
     from {
@@ -588,6 +630,10 @@ table.experience tr td h4 {
             width: 100%;
             border-radius: 0 0 32px 32px;
             background-color: var(--headerColor);
+        }
+
+        .menu-button-container{
+            position: sticky;
         }
 
         .menu-button-container a{

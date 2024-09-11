@@ -23,10 +23,16 @@ projectsButton[0].addEventListener("click", () => { changePage("projects-subpage
 projectsButton[1].addEventListener("click", () => { changePage("projects-subpage") });
 
 const inAnimationSpeed = 0.5;
-const outAnimationSpeed = 0.5;
+const outAnimationSpeed = 1;
 
-const inAnimations = ["yRotateIn","xRotateIn", "slideInLeft"];
-const outAnimations = ["yRotateOut", "xRotateOut", "slide-out-left"];
+const inAnimations = ["yRotateIn", "xRotateIn", "slideInLeft"];
+const inAnimationSpeeds = [0.5, 0.5, 0.5];
+// const outAnimations = ["yRotateOut", "xRotateOut", "slide-out-left","frameDrop"];
+// const outAnimationSpeeds = [0.5,0.5,0.5,1];
+const outAnimations = ["pushAndTurn"];
+const outAnimationSpeeds = [3];
+
+
 
 function getRandomIndex(maxIndex){
     return Math.floor(Math.random() * maxIndex);
@@ -56,7 +62,7 @@ function changePage(newPageID) {
             //Play fade out animation for current subpage
             let randomOutIndex = getRandomIndex(outAnimations.length);
             console.log(`playing out animation ${outAnimations[randomOutIndex]}`);
-            subpage.style.animation = `${outAnimationSpeed}s linear 0s 1 normal backwards running ${outAnimations[randomOutIndex]}`;
+            subpage.style.animation = `${outAnimationSpeeds[randomOutIndex]}s ease-in 0s 1 normal backwards running ${outAnimations[randomOutIndex]}`;
             //Add event listener for the end of subpage out animation
             subpage.addEventListener('animationend', () => {
                 //Deactivate subpage and remove animation
@@ -67,7 +73,7 @@ function changePage(newPageID) {
 
                 let randomInIndex = getRandomIndex(inAnimations.length);
                 console.log(`playing in animation ${inAnimations[randomInIndex]}`);
-                newSubpage.style.animation = `${inAnimationSpeed}s linear 0s 1 normal forwards running ${inAnimations[randomInIndex]}`;
+                newSubpage.style.animation = `${inAnimationSpeeds[randomInIndex]}s linear 0s 1 normal forwards running ${inAnimations[randomInIndex]}`;
                 newSubpage.addEventListener('animationend', () =>{
                     newSubpage.style.removeProperty("animation");
                 }, { once: true }); 
