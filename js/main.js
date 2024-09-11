@@ -27,10 +27,10 @@ const outAnimationSpeed = 1;
 
 const inAnimations = ["yRotateIn", "xRotateIn", "slideInLeft"];
 const inAnimationSpeeds = [0.5, 0.5, 0.5];
-// const outAnimations = ["yRotateOut", "xRotateOut", "slide-out-left","frameDrop"];
-// const outAnimationSpeeds = [0.5,0.5,0.5,1];
-const outAnimations = ["pushAndTurn"];
-const outAnimationSpeeds = [3];
+const outAnimations = ["yRotateOut", "xRotateOut", "slide-out-left","frameDrop"];
+const outAnimationSpeeds = [0.5,0.5,0.5,1];
+// const outAnimations = ["pushAndTurn"];
+// const outAnimationSpeeds = [3];
 
 
 
