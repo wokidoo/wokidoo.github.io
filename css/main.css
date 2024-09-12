@@ -9,6 +9,7 @@
     --contentBackgroundColor: rgb(82, 77, 71);
     --tooltipBackgroundColor: rgb(175, 120, 53);
     --linkColor: rgb(0, 208, 255);
+    --tableBorderColor:rgb(122, 114, 98);
     font-size: 14px;
 }
 
@@ -575,6 +576,50 @@ table.experience tr td h4 {
     font-size: 1.3rem;
     color: var(--secondaryFontColor);
 }
+
+/* PROJECTS TABLE */
+table.projects tr {
+    border-spacing: 1.0rem;
+    border-bottom: 1px solid var(--tableBorderColor);
+    border-top: 1px solid var(--tableBorderColor);
+}
+
+table.projects tr td:first-child {
+    /* border-right: 1px solid var(--secondaryFontColor); */
+    width: 25%;
+}
+
+table.projects tr td:first-child img {
+    width: 100%;
+}
+
+table.projects tr td:last-child {
+    vertical-align: top;
+    text-align: left;
+    padding-left: 1.0rem;
+    padding-top: 1.0rem;
+}
+
+table.projects tr td:last-child a{
+    font-weight: bold;
+    font-size: 1.5rem;
+    color: var(--linkColor);
+    text-decoration: none;
+}
+
+table.projects tr td:last-child h4 {
+    font-size: 1.25rem;
+    color: var(--secondaryFontColor);
+    margin-top: 5px;
+    margin-bottom: 1.0rem;
+}
+
+table.projects tr td:last-child p{
+    font-size: 1.0rem;
+    color: var(--primaryFontColor);
+    margin-bottom: 1.0rem;
+}
+
 /* Extra small devices (phones, 600px and down) */
 @media only screen and (max-width: 1000px) {
         .page {
