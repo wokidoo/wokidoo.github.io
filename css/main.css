@@ -9,6 +9,8 @@
     --contentBackgroundColor: rgb(82, 77, 71);
     --tooltipBackgroundColor: rgb(175, 120, 53);
     --linkColor: rgb(0, 208, 255);
+    --tableBorderColor:rgb(122, 114, 98);
+    font-size: 14px;
 }
 
 body {
@@ -19,7 +21,7 @@ body {
     width: 100%;
     height: 100%;
     background-size: cover;
-    font-size: 15px;
+    font-size: 1.25rem;
     font-family: 'Poppins', Helvetica, sans-serif;
     line-height: 1.65em;
 }
@@ -76,6 +78,48 @@ body {
         transform: scale(1,0);
     }
 }
+
+@keyframes frameDrop {
+    0%{
+        transform-origin: 0% 0%;
+        transform: rotatez(0deg);
+        z-index: 999;
+    }
+    40%{
+        transform-origin: 0% 0%;
+        transform: rotatez(60deg);
+        opacity: 1;
+    }   
+    80%{
+        transform-origin: 0% 0%;
+        transform: rotatez(60deg);
+        transform: translateY(100%);
+        z-index: 999;
+        opacity: 0;
+    
+    }
+    100%{
+        transform-origin: 0% 0%;
+        transform: rotatez(60deg);
+        transform: translateY(100%);
+        z-index: 999;
+        opacity: 0;
+    }
+}
+@keyframes pushAndTurn {
+    0%{
+        opacity: 1;
+        transform: scale(100%,100%);
+    }
+    50%{
+        opacity: 0.5;
+        transform: scale(50%, 50%);
+    }
+    100%{
+        opacity: 0;
+        transform: scale(50%, 50%) rotateY(-90deg) translateX(100%);
+    }
+}
     /* IN ANIMATIONS */
 @keyframes fadein {
     from {
@@ -125,8 +169,6 @@ body {
 
 .active-subpage::-webkit-scrollbar{
     width: 12px;
-    color:#888888;
-
 }
 
 .active-subpage::-webkit-scrollbar-thumb{
@@ -216,7 +258,7 @@ body {
 
 .social-links a i{
     color: var(--mainColor);
-    font-size: 20px;
+    font-size: 1.25rem;
     transition: all 0.3s ease-in-out;
 }
 
@@ -295,6 +337,7 @@ body {
 .menu-button:hover {
     color: black;
     background-color: var(--mainColor);
+    cursor: pointer;
 }
 
 .menu-button .button-tooltip {
@@ -373,7 +416,7 @@ p a{
 .subpage h2{
     color: var(--primaryFontColor);
     margin: 0;
-    font-size:xx-large;
+    font-size:2rem;
     font-weight: bold;
     z-index: 99;
 }
@@ -394,13 +437,13 @@ p a{
 
 .subpage h3{
     color: var(--primaryFontColor);
-    font-size: large;
+    font-size: 1.5rem;
     font-weight: bold;
 }
 
 .subpage p{
     margin: 0;
-    font-size: 1.0rem;
+    font-size: 1.25rem;
 }
 
 .active-subpage{
@@ -533,6 +576,50 @@ table.experience tr td h4 {
     font-size: 1.3rem;
     color: var(--secondaryFontColor);
 }
+
+/* PROJECTS TABLE */
+table.projects tr {
+    border-spacing: 1.0rem;
+    border-bottom: 1px solid var(--tableBorderColor);
+    border-top: 1px solid var(--tableBorderColor);
+}
+
+table.projects tr td:first-child {
+    /* border-right: 1px solid var(--secondaryFontColor); */
+    width: 25%;
+}
+
+table.projects tr td:first-child img {
+    width: 100%;
+}
+
+table.projects tr td:last-child {
+    vertical-align: top;
+    text-align: left;
+    padding-left: 1.0rem;
+    padding-top: 1.0rem;
+}
+
+table.projects tr td:last-child a{
+    font-weight: bold;
+    font-size: 1.5rem;
+    color: var(--linkColor);
+    text-decoration: none;
+}
+
+table.projects tr td:last-child h4 {
+    font-size: 1.25rem;
+    color: var(--secondaryFontColor);
+    margin-top: 5px;
+    margin-bottom: 1.0rem;
+}
+
+table.projects tr td:last-child p{
+    font-size: 1.0rem;
+    color: var(--primaryFontColor);
+    margin-bottom: 1.0rem;
+}
+
 /* Extra small devices (phones, 600px and down) */
 @media only screen and (max-width: 1000px) {
         .page {
@@ -588,6 +675,10 @@ table.experience tr td h4 {
             width: 100%;
             border-radius: 0 0 32px 32px;
             background-color: var(--headerColor);
+        }
+
+        .menu-button-container{
+            position: sticky;
         }
 
         .menu-button-container a{
